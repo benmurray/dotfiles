@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/a91738'
+let g:netrw_dirhist_2='/home/a91738/workspace/ateam'
+let g:netrw_dirhist_3='/home/a91738/.vim/after'
+let g:netrw_dirhist_4='/home/a91738/workspace/ateam'
