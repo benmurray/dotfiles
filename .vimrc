@@ -8,7 +8,7 @@
 " ==============
 call pathogen#infect()
 set nocompatible	"Use vim, not vi
-set number
+set relativenumber
 set ruler
 syntax on
 set encoding=utf-8
