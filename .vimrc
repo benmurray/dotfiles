@@ -95,12 +95,16 @@ nnoremap <leader>ea :edit $HOME/.vim_annoyances<cr>
 	" call up NERDTree on current dir
 nnoremap <leader>, :NERDTree .<cr>
 nnoremap <leader>tb :TagbarToggle<cr>
+
 " Smash Escape
-inoremap jk <esc>
-inoremap kj <esc>
-vnoremap jk <esc>
-vnoremap kj <esc>
-"vnoremap <esc> <nop>
+"  - removing for muscle memory reasons,
+"  - this is not in every IDE emulator
+"inoremap jk <esc>
+"inoremap kj <esc>
+"vnoremap jk <esc>
+"vnoremap kj <esc>
+""vnoremap <esc> <nop>
+
 noremap <leader>w <c-w><c-w>
 " Toggle Toolbar "
 nnoremap <leader>got :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
