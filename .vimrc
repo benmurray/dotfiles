@@ -12,7 +12,7 @@ syntax on
 set encoding=utf-8
 set background=dark
 set encoding=utf-8
-colorscheme solarized
+colorscheme elflord
 set cc=80
 let NERDTreeIgnore = ['\.pyc$']
 
@@ -99,11 +99,11 @@ nnoremap <leader>tb :TagbarToggle<cr>
 " Smash Escape
 "  - removing for muscle memory reasons,
 "  - this is not in every IDE emulator
-"inoremap jk <esc>
-"inoremap kj <esc>
-"vnoremap jk <esc>
-"vnoremap kj <esc>
-""vnoremap <esc> <nop>
+inoremap jk <esc>
+inoremap kj <esc>
+vnoremap jk <esc>
+vnoremap kj <esc>
+"vnoremap <esc> <nop>
 
 noremap <leader>w <c-w><c-w>
 " Toggle Toolbar "
