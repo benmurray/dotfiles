@@ -26,7 +26,7 @@ let g:python_highlight_space_errors=1
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme darcula
+colorscheme monokai
 
 " gitgutter
 "let g:gitgutter_set_sign_backgrounds=1
