@@ -10,7 +10,7 @@ set relativenumber
 set ruler
 set encoding=utf-8
 set cc=100
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$','__pycache__']
 
 call pathogen#helptags()
 
