@@ -7,15 +7,17 @@
 call pathogen#infect()
 set nocompatible	"Use vim, not vi
 set relativenumber
+set number " line I am on will be actual line number
 set ruler
 set encoding=utf-8
 set cc=100
-let NERDTreeIgnore = ['\.pyc$','__pycache__']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 
 call pathogen#helptags()
 
 " set termguicolors
 set t_Co=256
+set mouse=a
 syntax enable
 let g:python_highlight_builtins=1
 let g:python_highlight_doctests=1
@@ -28,13 +30,32 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme monokai
 
-" gitgutter
-"let g:gitgutter_set_sign_backgrounds=1
-"highlight GitGutterAdd    guifg=#009900 ctermbg=2 ctermfg=0
-"highlight GitGutterChange guifg=#bbbb00 ctermbg=3 ctermfg=0
-"highlight GitGutterDelete guifg=#ff2222 ctermbg=1 ctermfg=0
+" ===========
+" Status Line
+" ===========
+set laststatus=2                        " Always how statusline
+function! ChangeStatusLineColor()
+    if &mod == 1
+        " hi statusline ctermfg=16 ctermbg=228  " a faded yllow
+        hi statusline ctermfg=16 ctermbg=3
+    else
+        hi statusline ctermfg=15 ctermbg=8
+    endif
+endfunction
+au InsertLeave,InsertEnter,BufWritePost   * call ChangeStatusLineColor()
 
-" silence bin
+" flake8
+" ==========
+" let g:flake8_show_in_gutter=1  " show
+" let g:flake8_show_in_file=0  " don't show (default)
+" let g:flake8_show_in_file=1  " show
+
+" ==========
+" gitgutter
+" ==========
+set updatetime=125
+
+" silence bell
 set vb
 " ==========
 " Whitespace
@@ -96,6 +117,16 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 " Tags
 " ====
 set tags=./tags,tags;/
+let g:tagbar_type_python = {
+    \ 'kinds' : [
+        \ 'i:imports:0:0',
+        \ 'c:classes',
+        \ 'f:functions',
+        \ 'm:members',
+        \ 'v:variables:0:0',
+        \ '?:unknown',
+    \ ],
+\ }
 " ========
 " MAPPINGS
 " ========
@@ -109,8 +140,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " bring up vim annoyances notes
 nnoremap <leader>ea :edit $HOME/.vim_annoyances<cr>
 	" call up NERDTree on current dir
-nnoremap <leader>, :NERDTree .<cr>
-nnoremap <leader>n  <plug>NERDTreeTabsTogglv<cr>
+"nnoremap <leader>, :NERDTree .<cr>
+nnoremap <leader>,  :NERDTreeTabsToggle<cr>
 nnoremap <leader>tb :TagbarToggle<cr>
 nnoremap <leader>D :put =strftime(':date: %Y-%m-%d %H:%M:%S')<cr>
 
@@ -140,7 +171,9 @@ nnoremap <leader>gob :if &go=~#'b'<Bar>set go-=b<Bar>else<Bar>set go+=b<Bar>endi
 iabbrev adn and
 iabbrev waht what
 iabbrev tehn then
+iabbrev postion position
+iabbrev continer container
 	" Common Shortcuts
-iabbrev @@ ben.murray@arnold.af.mil
+iabbrev @@ ben@ruddydog.com
 iabbrev ssig --<cr>Ben Murray<cr>ben@ruddydog.com<cr>Ruddy Dog<cr>--<cr>
 iabbrev ccopy Copyright 2022 Ben Murray, all rights reserved.
